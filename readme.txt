@@ -1,0 +1,1 @@
+This is a new readme file to check if git comiiting works properly
