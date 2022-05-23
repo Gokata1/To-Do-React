@@ -2,23 +2,22 @@ import React, { useState } from 'react'
 
 export default function Input( {handleAddingTask} ) {
 
-    const [input, setInput] = useState("");
+  const [input, setInput] = useState("");
 
-    const handleInputChange = (temp) => {
-        setInput(temp);
-    }
+  const handleInputChange = (temp) => {
+    setInput(temp);
+  }
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        handleAddingTask(input);
-        setInput("")
-
-    };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    handleAddingTask(input);
+    setInput("");
+  };
 
   return (
       <form className="Input flex justify-center mt-3" onSubmit={handleSubmit}>
           <input
-            className="bg-yellow-200 w-fit"
+            className="bg-yellow-200 p-1 w-10/12"
             value={input}
             onChange={event => handleInputChange(event.target.value)}
             placeholder="Enter Text here"
