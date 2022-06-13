@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 
 export default function Input( {handleAddingTask} ) {
 
   const [input, setInput] = useState("");
+
+  const notify = () => toast('Can not enter an empty note');
 
   const handleInputChange = (temp) => {
     setInput(temp);
@@ -10,7 +13,11 @@ export default function Input( {handleAddingTask} ) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    handleAddingTask(input);
+    if(input === ""){
+      notify();
+    }else{
+      handleAddingTask(input);
+    }
     setInput("");
   };
 

@@ -6,4 +6,8 @@ const setData = (newData) => {
     localStorage.setItem("data", JSON.stringify(newData));
 }
 
-module.exports = {getData, setData};
+const createData = ()=>{
+    localStorage.setItem("data",JSON.stringify([]));
+}
+
+module.exports = {getData, setData, createData};

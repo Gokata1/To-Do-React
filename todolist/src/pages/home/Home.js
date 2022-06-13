@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import List from '../../components/list/List';
 import Input from '../../components/input/Input';
-import { getData } from '../../controller/localStorageController/localStorageControllers';
+import { createData, getData } from '../../controller/localStorageController/localStorageControllers';
 import addNewTodo from '../../controller/addNewTodo/addNewTodo';
 import toggleTodos from '../../controller/toggleTodos/toggleTodos';
 import filterTodos from '../../controller/filterTodos/filterTodos';
@@ -19,9 +19,15 @@ export default function Home() {
       setItems(filterTodos);
     }
 
-    const handleAddingTask = async (todoValue) => {
+    const handleAddingTask= async (todoValue) => {
       setItems(addNewTodo(todoValue));
     }
+
+  useEffect(()=>{
+    if (!getData()){
+      createData();
+    } 
+  }, [] );
 
   return (
     <div className="Home flex flex-col justify-center content-center">
